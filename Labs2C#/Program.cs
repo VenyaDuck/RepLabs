@@ -87,10 +87,10 @@ class Program
         student1.FavoriteGame = new Game("Шахматы"); 
 
         Console.WriteLine("Информация о первом студенте:");
-        Console.WriteLine(student1.WriteInfo());
+        Console.WriteLine(student1.WriteInfo() + "\n");
 
         student1.BecomeOlder();
-        Console.WriteLine("После увеличения возраста на 1 год:");
+        Console.WriteLine("После увеличения возраста на 1 год:" );
         Console.WriteLine(student1.WriteInfo() + "\n");
 
         Student student2 = new Student("Тимофей", 20);
