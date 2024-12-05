@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4A3204EB-4929-4E7D-BA3E-92EACF8D9A63}</ProjectGuid>
+    <ProjectGuid>{4D434D55-D95B-44B3-9BEA-35859BCF617B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Labs7C_</RootNamespace>
-    <AssemblyName>Labs7C#</AssemblyName>
+    <RootNamespace>Labs8C_</RootNamespace>
+    <AssemblyName>Labs8C#</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,8 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IStudentView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentModel.cs" />
+    <Compile Include="StudentPresenter.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
