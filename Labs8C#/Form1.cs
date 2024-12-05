@@ -9,9 +9,9 @@ namespace Labs8C_
     {
         private StudentPresenter _presenter;
         private ErrorProvider _errorProvider;
-        private HashSet<string> _recordBookNumbers; // Хранит уникальные номера зачётных книжек
+        private HashSet<string> _recordBookNumbers; 
 
-        // Словарь для хранения институтов и их специализаций
+        
         private Dictionary<string, List<string>> _instituteSpecializations = new Dictionary<string, List<string>>
         {
             {
@@ -94,7 +94,7 @@ namespace Labs8C_
 
         private void InitializeComboBoxes()
         {
-            // Устанавливаем источники данных для comboBox1
+            
             comboBox1.DataSource = new List<string>(_instituteSpecializations.Keys);
             comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
         }
@@ -106,17 +106,17 @@ namespace Labs8C_
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Получаем выбранный институт
+            
             string selectedInstitute = comboBox1.SelectedItem?.ToString();
 
             if (!string.IsNullOrEmpty(selectedInstitute) && _instituteSpecializations.ContainsKey(selectedInstitute))
             {
-                // Устанавливаем специальности, связанные с выбранным институтом
+                
                 comboBox2.DataSource = _instituteSpecializations[selectedInstitute];
             }
             else
             {
-                // Если институт не выбран, очищаем второй комбобокс
+                
                 comboBox2.DataSource = null;
             }
         }
@@ -125,14 +125,14 @@ namespace Labs8C_
         {
             string recordBook = textBox2.Text;
 
-            // Проверка: номер зачётной книжки должен состоять ровно из 8 цифр
+            
             if (recordBook.Length != 8 || !recordBook.All(char.IsDigit))
             {
                 _errorProvider.SetError(textBox2, "Номер зачётной книжки должен содержать ровно 8 цифр.");
                 return;
             }
 
-            // Проверка: номер зачётной книжки должен быть уникальным
+            
             if (_recordBookNumbers.Contains(recordBook))
             {
                 _errorProvider.SetError(textBox2, "Такой номер зачётной книжки уже существует!");
@@ -145,17 +145,17 @@ namespace Labs8C_
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // Проверяем ошибки перед добавлением
+            
             if (!string.IsNullOrEmpty(_errorProvider.GetError(textBox2)))
             {
                 MessageBox.Show("Исправьте ошибки в номере зачётной книжки.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Добавляем номер зачётной книжки в список уникальных значений
+            
             _recordBookNumbers.Add(RecordBook);
 
-            // Добавление студента
+            
             _presenter.AddStudent();
         }
 
@@ -169,6 +169,11 @@ namespace Labs8C_
             {
                 MessageBox.Show("Пожалуйста, выберите строку для удаления.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

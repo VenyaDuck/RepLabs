@@ -16,7 +16,7 @@ namespace Labs9C_
         {
             InitializeComponent();
             comboBox2.Items.AddRange(new string[] { "JSON", "XML" });
-            comboBox2.SelectedIndex = 0; // Устанавливаем JSON как формат по умолчанию
+            comboBox2.SelectedIndex = 0; //JSON как формат по умолчанию
             comboBox1.Items.AddRange(new string[] { "Программирование", "Инженерия", "Дизайн" });
         }
 
@@ -35,14 +35,14 @@ namespace Labs9C_
             }
         }
 
-        private void ClearInputs() // Очистка полей ввода
+        private void ClearInputs() 
         {
             textBox1.Clear();
             textBox2.Clear();
             comboBox1.SelectedIndex = -1;
         }
 
-        private string GetFilePath() // Относительный путь к файлу
+        private string GetFilePath() 
         {
             string extension = comboBox2.SelectedItem.ToString().ToLower();
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"students.{extension}");
@@ -79,7 +79,7 @@ namespace Labs9C_
             }
         }
 
-        // Класс данных
+        
         public class Student
         {
             public string FullName { get; set; }

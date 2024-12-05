@@ -39,13 +39,13 @@ class Student : Person
         return $"Имя студента: {Name}, Возраст: {Age}";
     }
 
-    // Метод увеличения возраста
+
     public void BecomeOlder()
     {
         Age++;
     }
 
-    // Переопределение метода ToString()
+
     public override string ToString()
     {
         return $"[Student] Имя: {Name}, Возраст: {Age}";
@@ -62,7 +62,7 @@ class ITStudent : Student
         ProgrammingLanguage = programmingLanguage;
     }
 
-    // Скрытие метода WriteInfo
+
     public new string WriteInfo()
     {
         return $"Имя IT-студента: {Name}, Возраст: {Age}, Язык программирования: {ProgrammingLanguage}";
@@ -73,20 +73,20 @@ class Program
 {
     static void Main()
     {
-        // Создание объекта класса Student
+
         Student student1 = new Student("Алина", 18);
         Console.WriteLine(student1.WriteInfo());
-        Console.WriteLine(student1.ToString()); // Используется переопределённый ToString
+        Console.WriteLine(student1.ToString()); 
 
         // Создание объекта класса ITStudent
         ITStudent itStudent = new ITStudent("Тимофей", 20, "C#");
-        Console.WriteLine(itStudent.WriteInfo()); // Используется скрытый метод ITStudent.WriteInfo
+        Console.WriteLine(itStudent.WriteInfo()); 
 
         // Работа через базовый класс Person
         Person person = itStudent;
-        Console.WriteLine(person.WriteInfo()); // Используется метод Student.WriteInfo
+        Console.WriteLine(person.WriteInfo());
 
         // Демонстрация работы ToString
-        Console.WriteLine(itStudent.ToString()); // Используется ToString из Student
+        Console.WriteLine(itStudent.ToString());
     }
 }

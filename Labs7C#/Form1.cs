@@ -43,7 +43,7 @@ namespace Labs7C_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Считываем данные из текстовых полей и комбинированных списков
+            
             string studentName = textBox3.Text;
             string recordBook = textBox2.Text;
             string groupNumber = textBox1.Text;
@@ -67,7 +67,7 @@ namespace Labs7C_
                 return;
             }
 
-            // Создаем объект студента
+            
             Student student = new Student
             {
                 StudentName = studentName,
@@ -78,7 +78,7 @@ namespace Labs7C_
                 DateOfAdmission = dateOfAdmission
             };
 
-            // Добавляем данные в DataGridView
+           
             dataGridView1.Rows.Add(
                 student.StudentName,
                 student.RecordBook,
@@ -88,15 +88,15 @@ namespace Labs7C_
                 student.DateOfAdmission.ToShortDateString()
             );
 
-            // Добавляем номер зачётной книжки в список
+            
             recordBookNumbers.Add(recordBook);
 
-            // Очищаем поля
+            
             textBox3.Clear();
             textBox2.Clear();
             textBox1.Clear();
-            comboBox1.SelectedIndex = -1; // Сбрасываем выбор
-            comboBox2.SelectedIndex = -1; // Сбрасываем выбор
+            comboBox1.SelectedIndex = -1; 
+            comboBox2.SelectedIndex = -1; 
             dateTimePicker1.Value = DateTime.Now;
         }
 
@@ -184,6 +184,25 @@ namespace Labs7C_
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string input = textBox1.Text;
+
+            
+            if (input.Length != 8 ||
+                !char.IsDigit(input[0]) || !char.IsDigit(input[1]) || !char.IsDigit(input[2]) || // Первые 3 символа - цифры
+                !char.IsLetter(input[3]) ||                                                  // Следующий символ - буква
+                input[4] != '-' ||                                                          // Затем дефис
+                !char.IsLetter(input[5]) || !char.IsLetter(input[6]) || !char.IsLetter(input[7])) // Последние 3 символа - буквы
+            {
+                errorProvider1.SetError(textBox1, "Формат должен быть: 3 цифры, буква, дефис, 3 буквы (например, 131б-пио)");
+            }
+            else
+            {
+                errorProvider1.SetError(textBox1, ""); // Нет ошибок
+            }
         }
     }
 

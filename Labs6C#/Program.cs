@@ -120,29 +120,29 @@ class Program
     {
         try
         {
-            // Создание объекта Subject
+           
             Subject subject = new Subject("Математика", "Фундаментальный предмет для IT.");
 
-            // Создание объекта Student
+            
             Student student = new Student("Алина", 18, subject);
             Console.WriteLine(student.WriteInfo());
 
-            // Клонирование объекта
+            
             Student clonedStudent = (Student)student.Clone();
             Console.WriteLine("Клон: " + clonedStudent.WriteInfo());
 
-            // Сравнение студентов
+            
             Student student2 = new Student("Тимофей", 20, new Subject("Программирование", "Основы разработки."));
             Console.WriteLine($"Сравнение студентов (по возрасту): {student.CompareTo(student2)}");
 
-            // Создание объекта ITStudent
+            
             ITStudent itStudent = new ITStudent("Игнат", 21, new Subject("Физика", "Теория и практика моделирования."), "C#");
 
-            // Использование явной реализации ISpecialist
+            
             ISpecialist specialist = itStudent;
             Console.WriteLine(specialist.GetSpecializationInfo());
 
-            // Использование метода WriteInfo через ITStudent
+            
             Console.WriteLine(itStudent.WriteInfo());
         }
         catch (ArgumentException ex) when (ex.ParamName == "age")
